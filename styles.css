@@ -1,0 +1,73 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Garante altura total da tela */
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background-color: #000; /* fundo para evitar bordas brancas */
+}
+
+/* Container ocupa toda a tela */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/*
+  Frame com o tamanho da viewport: a imagem usa cover para preencher
+  largura e altura (sem barras pretas em 16:9, tablets, etc.); o excesso
+  da arte é cortado nas bordas, sem distorcer.
+*/
+.frame {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  max-width: 100vw;
+  line-height: 0;
+}
+
+/* Imagem: zoom para cobrir a tela inteira; proporção preservada */
+.frame img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/*
+  Área clicável invisível sobre "PÁGINA OFICIAL DO LIVRO AQUI" — ajuste % se precisar.
+*/
+.glass-link {
+  position: absolute;
+  left: 50%;
+  bottom: 32%;
+  transform: translateX(-50%);
+  width: min(68%, 300px);
+  height: 4.2%;
+  min-height: 24px;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.glass-link:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.65);
+  outline-offset: 3px;
+}
