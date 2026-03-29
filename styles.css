@@ -24,6 +24,7 @@ html, body {
 
   overflow-x: hidden;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /*
@@ -70,4 +71,27 @@ html, body {
 .glass-link:focus-visible {
   outline: 2px solid rgba(255, 255, 255, 0.65);
   outline-offset: 3px;
+}
+
+/*
+  Mobile: largura total da tela, altura natural da imagem (sem cover).
+  Assim nada da arte é cortado e a página pode rolar se a imagem for mais
+  alta que a viewport.
+*/
+@media (max-width: 768px) {
+  .container {
+    align-items: flex-start;
+  }
+
+  .frame {
+    height: auto;
+  }
+
+  .frame img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: unset;
+    object-position: unset;
+  }
 }
